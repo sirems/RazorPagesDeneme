@@ -1,0 +1,27 @@
+﻿@page "/Hakkinda"
+@*https://www.learnrazorpages.com/razor-pages/routing *@
+
+@model RazorPagesDeneme.Pages.denemeModel
+@{
+    ViewData["Title"] = "deneme";
+}
+
+<h1>deneme bir iki @ViewBag.ad</h1>
+
+<h2>Goz rengim: @Model.GozRenk </h2>
+<hr/>
+
+<h2>Beni ne kadar tanıyorsunuz?</h2>
+
+<form method="post">
+    irem'in soyadı nedir?
+    <span asp-validation-for="Quiz.Cevap"></span>
+    <input asp-for="Quiz.Cevap"/>
+    <input type="submit"/>
+</form>
+@if (!string.IsNullOrEmpty(Model.Sonuc))
+{
+    <div class="alert alert-info mb-2">
+        @Model.Sonuc
+    </div>
+}
